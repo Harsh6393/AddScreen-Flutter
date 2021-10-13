@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'start.dart';
+
+
+void main(){
+  runApp(const MyApp());
+}
+class MyApp extends StatelessWidget{
+  const MyApp({Key? key}) :super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return  const MaterialApp(
+      title: 'Flutter',
+      home: Home(),
+
+    );
+  }
+}
+class Home extends StatelessWidget{
+  const Home({Key? key}) :super(key:key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     // backgroundColor: Colors.teal,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Welcome to Flutter",
+          style: TextStyle(
+              color: Colors.black
+          ),
+        ),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("Click"),
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context)=> const SecondRoute()),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+//second file name start.dert
+
+import 'package:flutter/material.dart';
+
+
+
+void main(){
+  runApp(const MyApp());
+}
+class MyApp extends StatelessWidget{
+  const MyApp({Key? key}) :super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return  const MaterialApp(
+      title: 'Flutter',
+      home: SecondRoute(),
+
+    );
+  }
+}
+class SecondRoute extends StatelessWidget{
+  const SecondRoute({Key? key}) :super(key:key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     // backgroundColor: Colors.teal,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Welcome to SecondPage",
+          style: TextStyle(
+              color: Colors.black45
+          ),
+        ),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: (){
+            Navigator.pop(
+              context,
+            );
+          },
+          child: const Text("Go Back"),
+        ),
+      ),
+    );
+  }
+}
